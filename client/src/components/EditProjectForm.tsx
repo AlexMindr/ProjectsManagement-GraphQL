@@ -6,9 +6,10 @@ import { UPDATE_PROJECT } from "@/mutations/projectMutations";
 
 type Props = {
   project: ProjectType;
+  setToggleEdit: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const EditProjectForm = ({ project }: Props) => {
+const EditProjectForm = ({ project, setToggleEdit }: Props) => {
   const [name, setName] = useState(() => project.name);
   const [description, setDescription] = useState(() => project.description);
   const [status, setStatus] = useState(() =>
@@ -31,6 +32,7 @@ const EditProjectForm = ({ project }: Props) => {
       return alert("Please fill all fields");
     const values: OperationVariables = [name, description, status];
     updateProject(values);
+    setToggleEdit(false);
     // setName(name);
     // setDescription(description);
     // setStatus(status);
