@@ -1,15 +1,10 @@
 import { useState } from "react";
 import { FaUser } from "react-icons/fa";
-import {
-  useMutation,
-  MutationFunctionOptions,
-  OperationVariables,
-} from "@apollo/client";
+import { useMutation, OperationVariables } from "@apollo/client";
 import { ADD_CLIENT } from "@/mutations/clientMutations";
 import { GET_CLIENTS } from "@/queries/clientQueries";
-type Props = {};
 
-const AddClientModal = (props: Props) => {
+const AddClientModal = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");

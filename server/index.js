@@ -9,7 +9,7 @@ import schema from "./schema/schema.js";
 import connectDB from "./config/db.js";
 
 dotenv.config();
-const port = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 //app.use(helmet());
@@ -25,6 +25,7 @@ app.use(
   })
 );
 
-connectDB().then(() =>
-  app.listen(port, () => console.log(`Server running on port ${port}`))
+connectDB().then(
+  () => app.listen(PORT, () => console.log(`Server running on port ${PORT}`)),
+  (err) => console.log(`Something went wrong \n ${err}`.red.underline.bold)
 );
